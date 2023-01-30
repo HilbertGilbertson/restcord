@@ -70,7 +70,7 @@ EOF;
             $style = new \Symfony\Component\Console\Style\SymfonyStyle($input, $output);
             $style->title("Building Model Classes for: ".$input->getArgument('version'));
 
-            $definition = \GuzzleHttp\json_decode(
+            $definition = json_decode(
                 file_get_contents(
                     __DIR__.'/../src/Resources/service_description-v'.$input->getArgument('version').'.json'
                 ),
@@ -87,8 +87,8 @@ EOF;
                     $class->setDescription(ucwords($name)." Model");
                     $class->setProperties(
                         array_map(
-                            function (&$name, $property) use ($class, $resource, $model) {
-                                $optional = strpos($name, '?') !== false;
+                            function ($name, $property) use ($class, $resource, $model) {
+                                $optional = str_contains($name, '?');
                                 $name     = lcfirst(str_replace([' ', '?'], '', str_replace('-', '_', $name)));
                                 $prop     = new PhpProperty($name);
 
@@ -224,8 +224,6 @@ function mapBadDocs(string $cls): string
         default:
             return $cls;
     }
-
-    return $cls;
 }
 
 function addTraits(PhpClass $class, string $resource, string $name)
