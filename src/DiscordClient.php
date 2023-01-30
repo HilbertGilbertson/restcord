@@ -13,14 +13,15 @@
 
 namespace RestCord;
 
+use Exception;
 use GuzzleHttp\Client;
 use GuzzleHttp\Command\CommandInterface;
 use GuzzleHttp\Command\Guzzle\Description;
 use GuzzleHttp\Command\Guzzle\GuzzleClient;
 use GuzzleHttp\Command\Result;
 use GuzzleHttp\HandlerStack;
-use function GuzzleHttp\json_decode;
 use GuzzleHttp\Middleware;
+use JsonMapper;
 use Monolog\Logger;
 use Psr\Http\Message\ResponseInterface;
 use RestCord\Logging\MessageFormatter;
@@ -117,14 +118,14 @@ class DiscordClient
     /**
      * @param string $name
      *
-     * @throws \Exception
-     *
      * @return GuzzleClient
+     *@throws Exception
+     *
      */
-    public function __get($name)
+    public function __get(string $name)
     {
         if (!isset($this->categories[$name])) {
-            throw new \Exception('No category with the name: '.$name);
+            throw new Exception('No category with the name: '.$name);
         }
 
         return $this->categories[$name];
@@ -135,9 +136,9 @@ class DiscordClient
      *
      * @return array
      */
-    private function validateOptions(array $options)
+    private function validateOptions(array $options): array
     {
-        $currentVersion = 6;
+        $currentVersion = 10;
         $resolver       = new OptionsResolver();
         $resolver->setDefaults(
             [
@@ -145,7 +146,7 @@ class DiscordClient
                 'logger'            => new Logger('Logger'),
                 'rateLimitProvider' => new MemoryRateLimitProvider(),
                 'throwOnRatelimit'  => false,
-                'apiUrl'            => "https://discord.com/api/v{$currentVersion}/",
+                'apiUrl'            => "https://discord.com/api/v$currentVersion/",
                 'tokenType'         => 'Bot',
                 'cacheDir'          => __DIR__.'/../../../cache/',
                 'guzzleOptions'     => [],
@@ -170,7 +171,7 @@ class DiscordClient
      */
     private function buildDescriptions(Client $client)
     {
-        $description = \GuzzleHttp\json_decode(
+        $description = json_decode(
             file_get_contents(__DIR__.'/Resources/service_description-v'.$this->options['version'].'.json'),
             true
         );
@@ -193,25 +194,25 @@ class DiscordClient
     }
 
     /**
-     * @param string            $category
+     * @param string $category
      * @param array             $description
      * @param ResponseInterface $response
      * @param CommandInterface  $command
      *
-     * @throws \Exception
+     * @return array|object|object[]|Result
      *
-     * @return Result|mixed
+     * @throws Exception
      *
      * @internal param RequestInterface $request
      */
     private function convertResponseToResult(
-        $category,
-        array $description,
+        string            $category,
+        array             $description,
         ResponseInterface $response,
-        CommandInterface $command
+        CommandInterface  $command
     ) {
         if ($response->getStatusCode() >= 400) {
-            throw new \Exception($response->getBody()->__toString(), $response->getStatusCode());
+            throw new Exception($response->getBody()->__toString(), $response->getStatusCode());
         }
 
         $operation = $description['operations'][$category][$command->getName()];
@@ -223,7 +224,7 @@ class DiscordClient
                 }
 
                 return new Result(json_decode($content, true));
-            } catch (\Exception $e) {
+            } catch (Exception $e) {
                 dump($response->getBody()->__toString());
 
                 throw $e;
@@ -254,7 +255,7 @@ class DiscordClient
             return new Result([]);
         }
 
-        $mapper                   = new \JsonMapper();
+        $mapper                   = new JsonMapper();
         $mapper->bStrictNullTypes = false;
 
         if ($array) {
@@ -275,7 +276,7 @@ class DiscordClient
      *
      * @return array
      */
-    private function getResponseType($endpoint, array $operation)
+    private function getResponseType(string $endpoint, array $operation): array
     {
         if ($endpoint === 'getPinnedMessages') {
             return ['channel/message', true];
@@ -327,9 +328,9 @@ class DiscordClient
      *
      * @return array
      */
-    private function prepareOperations(array $operations)
+    private function prepareOperations(array $operations): array
     {
-        foreach ($operations as $operation => &$config) {
+        foreach ($operations as &$config) {
             $config['uri'] = ltrim($config['url'], '/');
             unset($config['url']);
 
@@ -353,7 +354,7 @@ class DiscordClient
             }
             unset($config['parametersArray']);
 
-            foreach ($config['parameters'] as $parameter => &$parameterConfig) {
+            foreach ($config['parameters'] as &$parameterConfig) {
                 $this->updateParameterTypes($parameterConfig);
                 if (!isset($parameterConfig['required'])) {
                     $parameterConfig['required'] = false;
@@ -395,7 +396,7 @@ class DiscordClient
     /**
      * @return string
      */
-    private function getVersion()
+    private function getVersion(): string
     {
         return trim(file_get_contents(__DIR__.'/../VERSION'));
     }
@@ -403,9 +404,9 @@ class DiscordClient
     /**
      * @param array $toParse
      *
-     * @return array|mixed
+     * @return array
      */
-    private function prepareModels(array $toParse)
+    private function prepareModels(array $toParse): array
     {
         $models = [
             'getResponse' => [
@@ -450,7 +451,7 @@ class DiscordClient
      *
      * @return string
      */
-    private function getAuthorizationHeader($tokenType, $token)
+    private function getAuthorizationHeader(string $tokenType, string $token): string
     {
         switch ($tokenType) {
             default:

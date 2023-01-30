@@ -17,7 +17,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-(new Application('Download Service Definitions', '1.0.0'))
+(new Application('Download Service Definitions', '1.1.0'))
     ->register('downloadServiceDefinition')
     ->addArgument('version', InputArgument::REQUIRED, 'Version to download')
     ->setCode(
@@ -28,9 +28,9 @@ use Symfony\Component\Console\Output\OutputInterface;
             $file = __DIR__.'/../src/Resources/service_description-v'.$input->getArgument('version').'.json';
             file_put_contents(
                 $file,
-                \GuzzleHttp\json_encode(
-                    \GuzzleHttp\json_decode(
-                        file_get_contents('https://discord-service-definition.herokuapp.com/')
+                json_encode(
+                    json_decode(
+                        file_get_contents('http://localhost:3000/')
                     ),
                     JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES
                 )
