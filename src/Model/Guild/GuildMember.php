@@ -19,6 +19,20 @@ namespace RestCord\Model\Guild;
 class GuildMember {
 
 	/**
+	 * the member's guild avatar hash
+	 *
+	 * @var string|null
+	 */
+	public $avatar;
+
+	/**
+	 * when the user's timeout will expire and the user will be able to communicate in the guild again, null or a time in the past if the user is not timed out
+	 *
+	 * @var \DateTimeImmutable|null
+	 */
+	public $communication_disabled_until;
+
+	/**
 	 * whether the user is deafened in voice channels
 	 *
 	 * @var bool
@@ -26,18 +40,18 @@ class GuildMember {
 	public $deaf = false;
 
 	/**
-	 * when the user joined the guild
-     *
-     * @var \DateTimeImmutable
-     */
-	public $joined_at;
+	 * guild member flags represented as a bit set, defaults to 0
+	 *
+	 * @var int
+	 */
+	public $flags;
 
 	/**
-	 * when the user started boosting the guild
+	 * when the user joined the guild
 	 *
-	 * @var \DateTimeImmutable|null
+	 * @var \DateTimeImmutable
 	 */
-	public $premium_since;
+	public $joined_at;
 
 	/**
 	 * whether the user is muted in voice channels
@@ -47,11 +61,32 @@ class GuildMember {
 	public $mute = false;
 
 	/**
-	 * this users guild nickname (if one is set)
+	 * this user's guild nickname
 	 *
 	 * @var string|null
 	 */
 	public $nick;
+
+	/**
+	 * whether the user has not yet passed the guild's Membership Screening requirements
+	 *
+	 * @var bool|null
+	 */
+	public $pending = false;
+
+	/**
+	 * total permissions of the member in the channel, including overwrites, returned when in the interaction object
+	 *
+	 * @var string|null
+	 */
+	public $permissions;
+
+	/**
+	 * when the user started boosting the guild
+	 *
+	 * @var \DateTimeImmutable|null
+	 */
+	public $premium_since;
 
 	/**
 	 * array of role object ids
@@ -63,7 +98,7 @@ class GuildMember {
 	/**
 	 * the user this guild member represents
 	 *
-	 * @var \RestCord\Model\User\User
+	 * @var \RestCord\Model\User\User|null
 	 */
 	public $user;
 

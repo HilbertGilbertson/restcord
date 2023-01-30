@@ -23,11 +23,25 @@ class User {
 	use AvatarTrait;
 
 	/**
+	 * the user's banner color encoded as an integer representation of hexadecimal color code
+	 *
+	 * @var int|null
+	 */
+	public $accent_color;
+
+	/**
 	 * the user's avatar hash
 	 *
 	 * @var string
 	 */
 	public $avatar;
+
+	/**
+	 * the user's banner hash
+	 *
+	 * @var string|null
+	 */
+	public $banner;
 
 	/**
 	 * whether the user belongs to an OAuth2 application
@@ -84,6 +98,20 @@ class User {
 	 * @var int|null
 	 */
 	public $premium_type;
+
+	/**
+	 * the public flags on a user's account
+	 *
+	 * @var int|null
+	 */
+	public $public_flags;
+
+	/**
+	 * whether the user is an Official Discord System user (part of the urgent message system)
+	 *
+	 * @var bool|null
+	 */
+	public $system = false;
 
 	/**
 	 * the user's username, not unique across the platform

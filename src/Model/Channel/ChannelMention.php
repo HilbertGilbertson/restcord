@@ -11,18 +11,40 @@
  * @license     MIT
  */
 
-namespace RestCord\Model\Guild;
-
-use RestCord\Traits\IconTrait;
-use RestCord\Traits\SplashTrait;
+namespace RestCord\Model\Channel;
 
 /**
- * Guild Model
+ * ChannelMention Model
  */
-class Guild {
+class ChannelMention {
 
-	use IconTrait;
-	use SplashTrait;
+	/**
+	 * id of the guild containing the channel
+	 *
+	 * @var int
+	 */
+	public $guild_id;
+
+	/**
+	 * id of the channel
+	 *
+	 * @var int
+	 */
+	public $id;
+
+	/**
+	 * the name of the channel
+	 *
+	 * @var string
+	 */
+	public $name;
+
+	/**
+	 * the type of channel
+	 *
+	 * @var int
+	 */
+	public $type;
 
 	/**
 	 * @param array $content

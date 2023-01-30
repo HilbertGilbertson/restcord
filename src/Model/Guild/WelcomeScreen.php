@@ -13,16 +13,45 @@
 
 namespace RestCord\Model\Guild;
 
-use RestCord\Traits\IconTrait;
-use RestCord\Traits\SplashTrait;
-
 /**
- * Guild Model
+ * WelcomeScreen Model
  */
-class Guild {
+class WelcomeScreen {
 
-	use IconTrait;
-	use SplashTrait;
+	/**
+	 * the channel's id
+	 *
+	 * @var int
+	 */
+	public $channel_id;
+
+	/**
+	 * the description shown for the channel
+	 *
+	 * @var string
+	 */
+	public $description;
+
+	/**
+	 * the emoji id, if the emoji is custom
+	 *
+	 * @var int
+	 */
+	public $emoji_id;
+
+	/**
+	 * the emoji name if custom, the unicode character if standard, or null if no emoji is set
+	 *
+	 * @var string
+	 */
+	public $emoji_name;
+
+	/**
+	 * the channels shown in the welcome screen, up to 5
+	 *
+	 * @var array
+	 */
+	public $welcome_channels;
 
 	/**
 	 * @param array $content

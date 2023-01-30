@@ -19,34 +19,6 @@ namespace RestCord\Model\User;
 class Connection {
 
 	/**
-	 * access tokens of users that have granted your app the gdm.join scope
-	 *
-	 * @var array
-	 */
-	public $access_tokens;
-
-	/**
-	 * get guilds after this guild ID
-	 *
-	 * @var int
-	 */
-	public $after;
-
-	/**
-	 * if passed, modifies the user's avatar
-	 *
-	 * @var avatar data
-	 */
-	public $avatar;
-
-	/**
-	 * get guilds before this guild ID
-	 *
-	 * @var int
-	 */
-	public $before;
-
-	/**
 	 * whether friend sync is enabled for this connection
 	 *
 	 * @var bool
@@ -63,16 +35,9 @@ class Connection {
 	/**
 	 * an array of partial server integrations
 	 *
-	 * @var array
+	 * @var array|null
 	 */
 	public $integrations;
-
-	/**
-	 * max number of guilds to return (1-100)
-	 *
-	 * @var int
-	 */
-	public $limit = 100;
 
 	/**
 	 * the username of the connection account
@@ -82,23 +47,9 @@ class Connection {
 	public $name;
 
 	/**
-	 * a dictionary of user ids to their respective nicknames
-	 *
-	 * @var dict
-	 */
-	public $nicks;
-
-	/**
-	 * the recipient to open a DM channel with
-	 *
-	 * @var int
-	 */
-	public $recipient_id;
-
-	/**
 	 * whether the connection is revoked
 	 *
-	 * @var bool
+	 * @var bool|null
 	 */
 	public $revoked = false;
 
@@ -110,18 +61,18 @@ class Connection {
 	public $show_activity = false;
 
 	/**
-	 * the service of the connection (twitch, youtube)
+	 * whether this connection has a corresponding third party OAuth2 token
+	 *
+	 * @var bool
+	 */
+	public $two_way_link = false;
+
+	/**
+	 * the service of this connection
 	 *
 	 * @var string
 	 */
 	public $type;
-
-	/**
-	 * users username, if changed may cause the users discriminator to be randomized.
-	 *
-	 * @var string
-	 */
-	public $username;
 
 	/**
 	 * whether the connection is verified

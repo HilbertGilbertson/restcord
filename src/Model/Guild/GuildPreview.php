@@ -11,89 +11,89 @@
  * @license     MIT
  */
 
-namespace RestCord\Model\Permissions;
+namespace RestCord\Model\Guild;
 
 /**
- * Role Model
+ * GuildPreview Model
  */
-class Role {
+class GuildPreview {
 
 	/**
-	 * integer representation of hexadecimal color code
+	 * approximate number of members in this guild
 	 *
 	 * @var int
 	 */
-	public $color;
+	public $approximate_member_count;
 
 	/**
-	 * if this role is pinned in the user listing
+	 * approximate number of online members in this guild
 	 *
-	 * @var bool
+	 * @var int
 	 */
-	public $hoist = false;
+	public $approximate_presence_count;
 
 	/**
-	 * role icon hash
+	 * the description for the guild
 	 *
-	 * @var string|null
+	 * @var string
+	 */
+	public $description;
+
+	/**
+	 * discovery splash hash
+	 *
+	 * @var string
+	 */
+	public $discovery_splash;
+
+	/**
+	 * custom guild emojis
+	 *
+	 * @var array
+	 */
+	public $emojis;
+
+	/**
+	 * enabled guild features
+	 *
+	 * @var array
+	 */
+	public $features;
+
+	/**
+	 * icon hash
+	 *
+	 * @var string
 	 */
 	public $icon;
 
 	/**
-	 * role id
+	 * guild id
 	 *
 	 * @var int
 	 */
 	public $id;
 
 	/**
-	 * whether this role is managed by an integration
-	 *
-	 * @var bool
-	 */
-	public $managed = false;
-
-	/**
-	 * whether this role is mentionable
-	 *
-	 * @var bool
-	 */
-	public $mentionable = false;
-
-	/**
-	 * role name
+	 * guild name (2-100 characters)
 	 *
 	 * @var string
 	 */
 	public $name;
 
 	/**
-	 * permission bit set
+	 * splash hash
 	 *
 	 * @var string
 	 */
-	public $permissions;
+	public $splash;
 
 	/**
-	 * position of this role
+	 * custom guild stickers
 	 *
-	 * @var int
+	 * @var array
 	 */
-	public $position;
-
-	/**
-	 * the tags this role has
-	 *
-	 * @var array|null
-	 */
-	public $tags;
-
-	/**
-	 * role unicode emoji
-	 *
-	 * @var string|null
-	 */
-	public $unicode_emoji;
+	public $stickers;
 
 	/**
 	 * @param array $content

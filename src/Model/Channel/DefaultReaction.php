@@ -11,18 +11,26 @@
  * @license     MIT
  */
 
-namespace RestCord\Model\Guild;
-
-use RestCord\Traits\IconTrait;
-use RestCord\Traits\SplashTrait;
+namespace RestCord\Model\Channel;
 
 /**
- * Guild Model
+ * DefaultReaction Model
  */
-class Guild {
+class DefaultReaction {
 
-	use IconTrait;
-	use SplashTrait;
+	/**
+	 * the id of a guild's custom emoji
+	 *
+	 * @var int
+	 */
+	public $emoji_id;
+
+	/**
+	 * the unicode character of the emoji
+	 *
+	 * @var string
+	 */
+	public $emoji_name;
 
 	/**
 	 * @param array $content

@@ -19,14 +19,14 @@ namespace RestCord\Model\Invite;
 class Invite {
 
 	/**
-	 * approximate count of total members
+	 * approximate count of total members, returned from the GET /invites/<code> endpoint when with_counts is true
 	 *
 	 * @var int|null
 	 */
 	public $approximate_member_count;
 
 	/**
-	 * approximate count of online members (only present when target_user is set)
+	 * approximate count of online members, returned from the GET /invites/<code> endpoint when with_counts is true
 	 *
 	 * @var int|null
 	 */
@@ -47,6 +47,13 @@ class Invite {
 	public $code;
 
 	/**
+	 * the expiration date of this invite, returned from the GET /invites/<code> endpoint when with_expiration is true
+	 *
+	 * @var \DateTimeImmutable|null
+	 */
+	public $expires_at;
+
+	/**
 	 * the guild this invite is for
 	 *
 	 * @var array|null
@@ -54,18 +61,46 @@ class Invite {
 	public $guild;
 
 	/**
-	 * the target user for this invite
+	 * guild scheduled event data, only included if guild_scheduled_event_id contains a valid guild scheduled event id
 	 *
-	 * @var array
+	 * @var array|null
 	 */
-	public $target_user;
+	public $guild_scheduled_event;
 
 	/**
-	 * the type of target user for this invite
+	 * the user who created the invite
+	 *
+	 * @var array|null
+	 */
+	public $inviter;
+
+	/**
+	 * stage instance data if there is a public Stage instance in the Stage channel this invite is for (deprecated)
+	 *
+	 * @var array|null
+	 */
+	public $stage_instance;
+
+	/**
+	 * the embedded application to open for this voice channel embedded application invite
+	 *
+	 * @var array|null
+	 */
+	public $target_application;
+
+	/**
+	 * the type of target for this voice channel invite
 	 *
 	 * @var int|null
 	 */
-	public $target_user_type;
+	public $target_type;
+
+	/**
+	 * the user whose stream to display for this voice channel stream invite
+	 *
+	 * @var array|null
+	 */
+	public $target_user;
 
 	/**
 	 * @param array $content

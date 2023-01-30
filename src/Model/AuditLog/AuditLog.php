@@ -19,21 +19,56 @@ namespace RestCord\Model\AuditLog;
 class AuditLog {
 
 	/**
-	 * list of audit log entires
+	 * List of application commands referenced in the audit log
+	 *
+	 * @var array
+	 */
+	public $application_commands;
+
+	/**
+	 * List of audit log entries, sorted from most to least recent
 	 *
 	 * @var array
 	 */
 	public $audit_log_entries;
 
 	/**
-	 * list of users found in the audit log
+	 * List of auto moderation rules referenced in the audit log
+	 *
+	 * @var array
+	 */
+	public $auto_moderation_rules;
+
+	/**
+	 * List of guild scheduled events referenced in the audit log
+	 *
+	 * @var array
+	 */
+	public $guild_scheduled_events;
+
+	/**
+	 * List of partial integration objects
+	 *
+	 * @var array
+	 */
+	public $integrations;
+
+	/**
+	 * List of threads referenced in the audit log*
+	 *
+	 * @var array
+	 */
+	public $threads;
+
+	/**
+	 * List of users referenced in the audit log
 	 *
 	 * @var array
 	 */
 	public $users;
 
 	/**
-	 * list of webhooks found in the audit log
+	 * List of webhooks referenced in the audit log
 	 *
 	 * @var array
 	 */

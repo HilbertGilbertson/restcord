@@ -11,18 +11,40 @@
  * @license     MIT
  */
 
-namespace RestCord\Model\Guild;
-
-use RestCord\Traits\IconTrait;
-use RestCord\Traits\SplashTrait;
+namespace RestCord\Model\Channel;
 
 /**
- * Guild Model
+ * AllowedMentions Model
  */
-class Guild {
+class AllowedMentions {
 
-	use IconTrait;
-	use SplashTrait;
+	/**
+	 * An array of allowed mention types to parse from the content.
+	 *
+	 * @var array
+	 */
+	public $parse;
+
+	/**
+	 * For replies, whether to mention the author of the message being replied to (default false)
+	 *
+	 * @var bool
+	 */
+	public $replied_user = false;
+
+	/**
+	 * Array of role_ids to mention (Max size of 100)
+	 *
+	 * @var list of snowflakes
+	 */
+	public $roles;
+
+	/**
+	 * Array of user_ids to mention (Max size of 100)
+	 *
+	 * @var list of snowflakes
+	 */
+	public $users;
 
 	/**
 	 * @param array $content

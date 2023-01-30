@@ -26,6 +26,20 @@ class Integration {
 	public $account;
 
 	/**
+	 * The bot/OAuth2 application for discord integrations
+	 *
+	 * @var array|null
+	 */
+	public $application;
+
+	/**
+	 * whether emoticons should be synced for this integration (twitch only currently)
+	 *
+	 * @var bool|null
+	 */
+	public $enable_emoticons = false;
+
+	/**
 	 * is this integration enabled
 	 *
 	 * @var bool
@@ -35,14 +49,14 @@ class Integration {
 	/**
 	 * the behavior of expiring subscribers
 	 *
-	 * @var int
+	 * @var integration expire behavior|null
 	 */
 	public $expire_behavior;
 
 	/**
-	 * the grace period before expiring subscribers
+	 * the grace period (in days) before expiring subscribers
 	 *
-	 * @var int
+	 * @var int|null
 	 */
 	public $expire_grace_period;
 
@@ -61,28 +75,49 @@ class Integration {
 	public $name;
 
 	/**
+	 * has this integration been revoked
+	 *
+	 * @var bool|null
+	 */
+	public $revoked = false;
+
+	/**
 	 * id that this integration uses for "subscribers"
 	 *
-	 * @var int
+	 * @var int|null
 	 */
 	public $role_id;
 
 	/**
+	 * the scopes the application has been authorized for
+	 *
+	 * @var array|null
+	 */
+	public $scopes;
+
+	/**
+	 * how many subscribers this integration has
+	 *
+	 * @var int|null
+	 */
+	public $subscriber_count;
+
+	/**
 	 * when this integration was last synced
 	 *
-	 * @var \DateTimeImmutable
+	 * @var \DateTimeImmutable|null
 	 */
 	public $synced_at;
 
 	/**
 	 * is this integration syncing
 	 *
-	 * @var bool
+	 * @var bool|null
 	 */
 	public $syncing = false;
 
 	/**
-	 * integration type (twitch, youtube, etc)
+	 * integration type (twitch, youtube, discord, or guild_subscription)
 	 *
 	 * @var string
 	 */
@@ -91,7 +126,7 @@ class Integration {
 	/**
 	 * user for this integration
 	 *
-	 * @var \RestCord\Model\User\User
+	 * @var \RestCord\Model\User\User|null
 	 */
 	public $user;
 

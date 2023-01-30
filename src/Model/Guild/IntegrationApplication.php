@@ -14,23 +14,44 @@
 namespace RestCord\Model\Guild;
 
 /**
- * GuildEmbed Model
+ * IntegrationApplication Model
  */
-class GuildEmbed {
+class IntegrationApplication {
 
 	/**
-	 * the embed channel id
+	 * the bot associated with this application
+	 *
+	 * @var array|null
+	 */
+	public $bot;
+
+	/**
+	 * the description of the app
+	 *
+	 * @var string
+	 */
+	public $description;
+
+	/**
+	 * the icon hash of the app
+	 *
+	 * @var string
+	 */
+	public $icon;
+
+	/**
+	 * the id of the app
 	 *
 	 * @var int
 	 */
-	public $channel_id;
+	public $id;
 
 	/**
-	 * whether the embed is enabled
+	 * the name of the app
 	 *
-	 * @var bool
+	 * @var string
 	 */
-	public $enabled = false;
+	public $name;
 
 	/**
 	 * @param array $content

@@ -11,18 +11,40 @@
  * @license     MIT
  */
 
-namespace RestCord\Model\Guild;
-
-use RestCord\Traits\IconTrait;
-use RestCord\Traits\SplashTrait;
+namespace RestCord\Model\Channel;
 
 /**
- * Guild Model
+ * MessageReference Model
  */
-class Guild {
+class MessageReference {
 
-	use IconTrait;
-	use SplashTrait;
+	/**
+	 * id of the originating message's channel
+	 *
+	 * @var int|null
+	 */
+	public $channel_id;
+
+	/**
+	 * when sending, whether to error if the referenced message doesn't exist instead of sending as a normal (non-reply) message, default true
+	 *
+	 * @var bool|null
+	 */
+	public $fail_if_not_exists = false;
+
+	/**
+	 * id of the originating message's guild
+	 *
+	 * @var int|null
+	 */
+	public $guild_id;
+
+	/**
+	 * id of the originating message
+	 *
+	 * @var int|null
+	 */
+	public $message_id;
 
 	/**
 	 * @param array $content

@@ -19,21 +19,28 @@ namespace RestCord\Model\Gateway;
 class SessionStartLimit {
 
 	/**
-	 * The remaining number of session starts the current user is allowed
+	 * Number of identify requests allowed per 5 seconds
+	 *
+	 * @var int
+	 */
+	public $max_concurrency;
+
+	/**
+	 * Remaining number of session starts the current user is allowed
 	 *
 	 * @var int
 	 */
 	public $remaining;
 
 	/**
-	 * The number of milliseconds after which the limit resets
+	 * Number of milliseconds after which the limit resets
 	 *
 	 * @var int
 	 */
 	public $reset_after;
 
 	/**
-	 * The total number of session starts the current user is allowed
+	 * Total number of session starts the current user is allowed
 	 *
 	 * @var int
 	 */

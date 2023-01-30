@@ -11,75 +11,61 @@
  * @license     MIT
  */
 
-namespace RestCord\Model\Emoji;
+namespace RestCord\Model\Invite;
 
 /**
- * Emoji Model
+ * InviteStageInstance Model
  */
-class Emoji {
+class InviteStageInstance {
 
 	/**
-	 * whether this emoji is animated
+	 * the guild scheduled event to include with the invite
 	 *
-	 * @var bool|null
+	 * @var int|null
 	 */
-	public $animated = false;
+	public $guild_scheduled_event_id;
 
 	/**
-	 * whether this emoji can be used, may be false due to loss of Server Boosts
-	 *
-	 * @var bool|null
-	 */
-	public $available = false;
-
-	/**
-	 * emoji id
-	 *
-	 * @var int
-	 */
-	public $id;
-
-	/**
-	 * the 128x128 emoji image
-	 *
-	 * @var image data
-	 */
-	public $image;
-
-	/**
-	 * whether this emoji is managed
-	 *
-	 * @var bool|null
-	 */
-	public $managed = false;
-
-	/**
-	 * name of the emoji
-	 *
-	 * @var string
-	 */
-	public $name;
-
-	/**
-	 * whether this emoji must be wrapped in colons
-	 *
-	 * @var bool|null
-	 */
-	public $require_colons = false;
-
-	/**
-	 * roles allowed to use this emoji
+	 * the members speaking in the Stage
 	 *
 	 * @var array
 	 */
-	public $roles;
+	public $members;
 
 	/**
-	 * user that created this emoji
+	 * the number of users in the Stage
 	 *
-	 * @var array|null
+	 * @var int
 	 */
-	public $user;
+	public $participant_count;
+
+	/**
+	 * the number of users speaking in the Stage
+	 *
+	 * @var int
+	 */
+	public $speaker_count;
+
+	/**
+	 * the topic of the Stage instance (1-120 characters)
+	 *
+	 * @var string
+	 */
+	public $topic;
+
+	/**
+	 * whether the invite should contain approximate member counts
+	 *
+	 * @var bool|null
+	 */
+	public $with_counts = false;
+
+	/**
+	 * whether the invite should contain the expiration date
+	 *
+	 * @var bool|null
+	 */
+	public $with_expiration = false;
 
 	/**
 	 * @param array $content

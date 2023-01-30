@@ -19,49 +19,49 @@ namespace RestCord\Model\AuditLog;
 class AuditLogEntry {
 
 	/**
-	 * type of action that occured
+	 * Type of action that occurred
 	 *
 	 * @var audit log event
 	 */
 	public $action_type;
 
 	/**
-	 * changes made to the target_id
+	 * Changes made to the target_id
 	 *
 	 * @var array|null
 	 */
 	public $changes;
 
 	/**
-	 * id of the entry
+	 * ID of the entry
 	 *
 	 * @var int
 	 */
 	public $id;
 
 	/**
-	 * additional info for certain action types
+	 * Additional info for certain event types
 	 *
 	 * @var optional audit entry info|null
 	 */
 	public $options;
 
 	/**
-	 * the reason for the change (0-512 characters)
+	 * Reason for the change (1-512 characters)
 	 *
 	 * @var string|null
 	 */
 	public $reason;
 
 	/**
-	 * id of the affected entity (webhook, user, role, etc.)
+	 * ID of the affected entity (webhook, user, role, etc.)
 	 *
 	 * @var string
 	 */
 	public $target_id;
 
 	/**
-	 * the user who made the changes
+	 * User or app that made the changes
 	 *
 	 * @var int
 	 */

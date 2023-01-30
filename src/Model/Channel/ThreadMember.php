@@ -11,18 +11,47 @@
  * @license     MIT
  */
 
-namespace RestCord\Model\Guild;
-
-use RestCord\Traits\IconTrait;
-use RestCord\Traits\SplashTrait;
+namespace RestCord\Model\Channel;
 
 /**
- * Guild Model
+ * ThreadMember Model
  */
-class Guild {
+class ThreadMember {
 
-	use IconTrait;
-	use SplashTrait;
+	/**
+	 * Any user-thread settings, currently only used for notifications
+	 *
+	 * @var int
+	 */
+	public $flags;
+
+	/**
+	 * ID of the thread
+	 *
+	 * @var int|null
+	 */
+	public $id;
+
+	/**
+	 * Time the user last joined the thread
+	 *
+	 * @var \DateTimeImmutable
+	 */
+	public $join_timestamp;
+
+	/**
+	 * Additional information about the user
+	 *
+	 * @var array|null
+	 */
+	public $member;
+
+	/**
+	 * ID of the user
+	 *
+	 * @var int|null
+	 */
+	public $user_id;
 
 	/**
 	 * @param array $content

@@ -13,16 +13,52 @@
 
 namespace RestCord\Model\Guild;
 
-use RestCord\Traits\IconTrait;
-use RestCord\Traits\SplashTrait;
-
 /**
- * Guild Model
+ * GuildWidget Model
  */
-class Guild {
+class GuildWidget {
 
-	use IconTrait;
-	use SplashTrait;
+	/**
+	 * voice and stage channels which are accessible by @everyone
+	 *
+	 * @var array
+	 */
+	public $channels;
+
+	/**
+	 * guild id
+	 *
+	 * @var int
+	 */
+	public $id;
+
+	/**
+	 * instant invite for the guilds specified widget invite channel
+	 *
+	 * @var string
+	 */
+	public $instant_invite;
+
+	/**
+	 * special widget user objects that includes users presence (Limit 100)
+	 *
+	 * @var array
+	 */
+	public $members;
+
+	/**
+	 * guild name (2-100 characters)
+	 *
+	 * @var string
+	 */
+	public $name;
+
+	/**
+	 * number of online members in this guild
+	 *
+	 * @var int
+	 */
+	public $presence_count;
 
 	/**
 	 * @param array $content

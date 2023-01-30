@@ -13,16 +13,24 @@
 
 namespace RestCord\Model\Guild;
 
-use RestCord\Traits\IconTrait;
-use RestCord\Traits\SplashTrait;
-
 /**
- * Guild Model
+ * GuildWidgetSettings Model
  */
-class Guild {
+class GuildWidgetSettings {
 
-	use IconTrait;
-	use SplashTrait;
+	/**
+	 * the widget channel id
+	 *
+	 * @var int
+	 */
+	public $channel_id;
+
+	/**
+	 * whether the widget is enabled
+	 *
+	 * @var bool
+	 */
+	public $enabled = false;
 
 	/**
 	 * @param array $content

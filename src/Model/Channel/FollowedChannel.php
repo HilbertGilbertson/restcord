@@ -11,18 +11,26 @@
  * @license     MIT
  */
 
-namespace RestCord\Model\Guild;
-
-use RestCord\Traits\IconTrait;
-use RestCord\Traits\SplashTrait;
+namespace RestCord\Model\Channel;
 
 /**
- * Guild Model
+ * FollowedChannel Model
  */
-class Guild {
+class FollowedChannel {
 
-	use IconTrait;
-	use SplashTrait;
+	/**
+	 * source channel id
+	 *
+	 * @var int
+	 */
+	public $channel_id;
+
+	/**
+	 * created target webhook id
+	 *
+	 * @var int
+	 */
+	public $webhook_id;
 
 	/**
 	 * @param array $content

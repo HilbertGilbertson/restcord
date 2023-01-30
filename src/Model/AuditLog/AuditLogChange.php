@@ -19,27 +19,6 @@ namespace RestCord\Model\AuditLog;
 class AuditLogChange {
 
 	/**
-	 * type of audit log change key
-	 *
-	 * @var string
-	 */
-	public $key;
-
-	/**
-	 * new value of the key
-	 *
-	 * @var mixed|null
-	 */
-	public $new_value;
-
-	/**
-	 * old value of the key
-	 *
-	 * @var mixed|null
-	 */
-	public $old_value;
-
-	/**
 	 * @param array $content
 	 */
 	public function __construct(array $content = null) {

@@ -11,18 +11,12 @@
  * @license     MIT
  */
 
-namespace RestCord\Model\Guild;
-
-use RestCord\Traits\IconTrait;
-use RestCord\Traits\SplashTrait;
+namespace RestCord\Model\Channel;
 
 /**
- * Guild Model
+ * ForumTag Model
  */
-class Guild {
-
-	use IconTrait;
-	use SplashTrait;
+class ForumTag {
 
 	/**
 	 * @param array $content
