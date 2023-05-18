@@ -22,8 +22,8 @@ use GuzzleHttp\Command\Result;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use JsonMapper;
-use Monolog\Logger;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Log\LoggerInterface;
 use RestCord\Logging\MessageFormatter;
 use RestCord\RateLimit\Provider\AbstractRateLimitProvider;
 use RestCord\RateLimit\Provider\MemoryRateLimitProvider;
@@ -58,7 +58,7 @@ class DiscordClient
     private $categories = [];
 
     /**
-     * @var Logger
+     * @var LoggerInterface
      */
     private $logger;
 
@@ -143,7 +143,7 @@ class DiscordClient
         $resolver->setDefaults(
             [
                 'version'           => $currentVersion,
-                'logger'            => new Logger('Logger'),
+                'logger'            => null,
                 'rateLimitProvider' => new MemoryRateLimitProvider(),
                 'throwOnRatelimit'  => false,
                 'apiUrl'            => "https://discord.com/api/v$currentVersion/",
