@@ -51,9 +51,9 @@ class User {
 	public $bot = false;
 
 	/**
-	 * the user's 4-digit discord-tag
+	 * '0' or the user's 4-digit discord-tag [deprecated]
 	 *
-	 * @var string
+	 * @var string|null
 	 */
 	public $discriminator;
 
@@ -114,11 +114,18 @@ class User {
 	public $system = false;
 
 	/**
-	 * the user's username, not unique across the platform
+	 * the user's username
 	 *
 	 * @var string
 	 */
 	public $username;
+
+    /**
+     * the user's global display name, if they have one
+     *
+     * @var string|null
+     */
+    public $global_name;
 
 	/**
 	 * whether the email on this account has been verified

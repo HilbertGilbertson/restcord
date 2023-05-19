@@ -89,7 +89,7 @@ class ApplicationRoleConnection {
 	public $recipient_id;
 
 	/**
-	 * user's username, if changed may cause the user's discriminator to be randomized.
+	 * user's username
 	 *
 	 * @var string
 	 */

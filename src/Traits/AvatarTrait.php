@@ -25,7 +25,9 @@ trait AvatarTrait
     public function getAvatar($format = 'webp', $size = null)
     {
         // Default User Avatar
-        $url = Constants::DEFAULT_AVATAR_URL.($this->discriminator % 5).'.png';
+        $url = Constants::DEFAULT_AVATAR_URL .
+            ($this->discriminator && strlen($this->discriminator) == 4 ? ($this->discriminator % 5) :
+                ($this->id >> 22) % 5) . 'z.png';
 
         // Check if User has Avatar
         if ($this->avatar) {
@@ -34,9 +36,9 @@ trait AvatarTrait
             }
 
             // User Avatar
-            $url = Constants::AVATAR_URL.$this->id.'/'.$this->avatar.'.'.$format;
+            $url = Constants::AVATAR_URL . $this->id . '/' . $this->avatar . '.' . $format;
             if ($size !== null) {
-                $url .= '?size='.$size;
+                $url .= '?size=' . $size;
             }
         }
 
