@@ -219,14 +219,6 @@ interface Guild {
 	public function listGuildMembers(array $options);
 
 	/**
-	 * @see https://discordapp.com/developers/docs/resources/guild#modify-current-user-nick
-	 *
-	 * @param array $options ['guild.id' => 'snowflake', 'nick' => 'string']
-	 * @return array Returns a 200 with the nickname on success.
-	 */
-	public function modifyCurrentUserNick(array $options);
-
-	/**
 	 * @see https://discordapp.com/developers/docs/resources/guild#modify-guild
 	 *
 	 * @param array $options ['guild.id' => 'snowflake', 'name' => 'string', 'region' => 'string', 'verification_level' => 'integer', 'default_message_notifications' => 'integer', 'explicit_content_filter' => 'integer', 'afk_channel_id' => 'snowflake', 'afk_timeout' => 'integer', 'icon' => 'string', 'owner_id' => 'snowflake', 'splash' => 'string', 'system_channel_id' => 'snowflake']
@@ -318,5 +310,5 @@ interface Guild {
 	 * @param array $options ['guild.id' => 'snowflake', 'nick' => 'string']
 	 * @return array Returns the nick
 	 */
-	public function updateNick(array $options);
+	public function modifyCurrentMember(array $options);
 }

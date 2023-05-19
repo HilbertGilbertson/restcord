@@ -26,8 +26,8 @@ trait AvatarTrait
     {
         // Default User Avatar
         $url = Constants::DEFAULT_AVATAR_URL .
-            ($this->discriminator && strlen($this->discriminator) == 4 ? ($this->discriminator % 5) :
-                ($this->id >> 22) % 5) . 'z.png';
+            (isset($this->discriminator) && strlen($this->discriminator) == 4 ? ($this->discriminator % 5) :
+                ($this->id >> 22) % 5) . '.png';
 
         // Check if User has Avatar
         if ($this->avatar) {

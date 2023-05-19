@@ -10,6 +10,12 @@
                 "method": "POST",
                 "url": "/guilds",
                 "description": "\"name\"",
+                "responseTypes": [
+                    {
+                        "name": "guild",
+                        "type": "guild/guild"
+                    }
+                ],
                 "parameters": {
                     "name": {
                         "location": "json",
@@ -82,6 +88,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}",
                 "description": "\"id\"",
+                "responseTypes": [
+                    {
+                        "name": "guild",
+                        "type": "guild/guild"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -123,6 +135,12 @@
                 "method": "PATCH",
                 "url": "/guilds/{guild.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "guild",
+                        "type": "guild/guild"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -270,6 +288,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/channels",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "channel",
+                        "type": "Array<channel/channel>"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -286,6 +310,12 @@
                 "method": "POST",
                 "url": "/guilds/{guild.id}/channels",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "channel",
+                        "type": "channel/channel"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -439,6 +469,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/members/{user.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "guild member",
+                        "type": "guild/guild-member"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -460,6 +496,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/members",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "guild member",
+                        "type": "Array<guild/guild-member>"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -487,6 +529,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/members/search",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "guild member",
+                        "type": "Array<guild/guild-member>"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -515,6 +563,12 @@
                 "method": "PUT",
                 "url": "/guilds/{guild.id}/members/{user.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "guild member",
+                        "type": "guild/guild-member"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -578,6 +632,12 @@
                 "method": "PATCH",
                 "url": "/guilds/{guild.id}/members/{user.id}",
                 "description": "must",
+                "responseTypes": [
+                    {
+                        "name": "guild member",
+                        "type": "guild/guild-member"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -649,31 +709,12 @@
                 "method": "PATCH",
                 "url": "/guilds/{guild.id}/members/@me",
                 "description": "",
-                "parameters": {
-                    "guild.id": {
-                        "type": "snowflake",
-                        "location": "uri",
-                        "required": true
-                    },
-                    "nick?": {
-                        "location": "json",
-                        "type": "string",
-                        "nullable": true,
-                        "description": "value to set user's nickname to",
-                        "extra": {
-                            "Permission": "CHANGE_NICKNAME"
-                        }
+                "responseTypes": [
+                    {
+                        "name": "guild member",
+                        "type": "guild/guild-member"
                     }
-                },
-                "parametersArray": false
-            },
-            "modifyCurrentUserNick": {
-                "link": "https://discordapp.com/developers/docs/resources/guild#modify-current-user-nick",
-                "resource": "guild",
-                "name": "Modify Current User Nick",
-                "method": "PATCH",
-                "url": "/guilds/{guild.id}/members/@me/nick",
-                "description": "",
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -771,6 +812,12 @@
                 "name": "Get Guild Bans",
                 "method": "GET",
                 "url": "/guilds/{guild.id}/bans",
+                "responseTypes": [
+                    {
+                        "name": "ban",
+                        "type": "Array<guild/ban>"
+                    }
+                ],
                 "description": "",
                 "parameters": {
                     "guild.id": {
@@ -804,6 +851,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/bans/{user.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "ban",
+                        "type": "guild/ban"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -879,6 +932,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/roles",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "role",
+                        "type": "Array<permissions/role>"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -894,6 +953,12 @@
                 "name": "Create Guild Role",
                 "method": "POST",
                 "url": "/guilds/{guild.id}/roles",
+                "responseTypes": [
+                    {
+                        "name": "role",
+                        "type": "permissions/role"
+                    }
+                ],
                 "description": "",
                 "parameters": {
                     "guild.id": {
@@ -955,6 +1020,12 @@
                 "method": "PATCH",
                 "url": "/guilds/{guild.id}/roles",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "role",
+                        "type": "Array<permissions/role>"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -982,6 +1053,12 @@
                 "method": "PATCH",
                 "url": "/guilds/{guild.id}/roles/{role.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "role",
+                        "type": "permissions/role"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -1150,6 +1227,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/regions",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "voice region",
+                        "type": "Array<voice/voice-region>"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -1166,6 +1249,16 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/invites",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "invite",
+                        "type": "Array<invite/invite>"
+                    },
+                    {
+                        "name": "invite metadata",
+                        "type": "invite/invite-metadata"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -1182,6 +1275,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/integrations",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "integration",
+                        "type": "Array<guild/integration>"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -1267,6 +1366,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/vanity-url",
                 "description": "\"code\"",
+                "responseTypes": [
+                    {
+                        "name": "invite",
+                        "type": "invite/invite"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -1410,26 +1515,6 @@
                     }
                 },
                 "parametersArray": false
-            },
-            "updateNick": {
-                "category": "guild",
-                "url": "/guilds/{guild.id}/members/@me/nick",
-                "method": "PATCH",
-                "name": "Update Current Users' Nickname",
-                "description": "Updates the bots nickname in a server",
-                "responseNote": "Returns the nick",
-                "responseTypes": [],
-                "parameters": {
-                    "guild.id": {
-                        "type": "snowflake",
-                        "location": "uri"
-                    },
-                    "nick": {
-                        "type": "string",
-                        "description": "Nickname to set",
-                        "location": "json"
-                    }
-                }
             }
         },
         "audit-log": {
@@ -1440,6 +1525,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/audit-logs",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "audit log",
+                        "type": "audit-log/audit-log"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -1458,6 +1549,12 @@
                 "method": "GET",
                 "url": "/channels/{channel.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "channel",
+                        "type": "channel/channel"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -1474,6 +1571,12 @@
                 "method": "PATCH",
                 "url": "/channels/{channel.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "channel",
+                        "type": "channel/channel"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -1490,6 +1593,12 @@
                 "method": "DELETE",
                 "url": "/channels/{channel.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "channel",
+                        "type": "channel/channel"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -1506,6 +1615,12 @@
                 "method": "GET",
                 "url": "/channels/{channel.id}/messages",
                 "description": "also",
+                "responseTypes": [
+                    {
+                        "name": "message",
+                        "type": "Array<channel/message>"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -1543,6 +1658,12 @@
                 "method": "GET",
                 "url": "/channels/{channel.id}/messages/{message.id}",
                 "description": "also",
+                "responseTypes": [
+                    {
+                        "name": "message",
+                        "type": "channel/message"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -1684,6 +1805,12 @@
                 "method": "GET",
                 "url": "/channels/{channel.id}/messages/{message.id}/reactions/{emoji}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "user",
+                        "type": "Array<user/user>"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -1768,6 +1895,12 @@
                 "method": "PATCH",
                 "url": "/channels/{channel.id}/messages/{message.id}",
                 "description": "default",
+                "responseTypes": [
+                    {
+                        "name": "message",
+                        "type": "channel/message"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -1909,6 +2042,16 @@
                 "method": "GET",
                 "url": "/channels/{channel.id}/invites",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "invite",
+                        "type": "Array<invite/invite>"
+                    },
+                    {
+                        "name": "invite metadata",
+                        "type": "invite/invite-metadata"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -1925,6 +2068,12 @@
                 "method": "POST",
                 "url": "/channels/{channel.id}/invites",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "invite",
+                        "type": "invite/invite"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -2038,6 +2187,12 @@
                 "method": "GET",
                 "url": "/channels/{channel.id}/pins",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "message",
+                        "type": "channel/message"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -2148,6 +2303,12 @@
                 "method": "POST",
                 "url": "/channels/{channel.id}/messages/{message.id}/threads",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "channel",
+                        "type": "channel/channel"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -2185,6 +2346,12 @@
                 "method": "POST",
                 "url": "/channels/{channel.id}/threads",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "channel",
+                        "type": "channel/channel"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -2228,6 +2395,12 @@
                 "method": "POST",
                 "url": "/channels/{channel.id}/threads",
                 "description": "8MiB",
+                "responseTypes": [
+                    {
+                        "name": "channel",
+                        "type": "channel/channel"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -2483,6 +2656,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/emojis",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "emoji",
+                        "type": "Array<emoji/emoji>"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -2499,6 +2678,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/emojis/{emoji.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "emoji",
+                        "type": "emoji/emoji"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -2520,6 +2705,12 @@
                 "method": "POST",
                 "url": "/guilds/{guild.id}/emojis",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "emoji",
+                        "type": "emoji/emoji"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -2551,6 +2742,12 @@
                 "method": "PATCH",
                 "url": "/guilds/{guild.id}/emojis/{emoji.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "emoji",
+                        "type": "emoji/emoji"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -2606,6 +2803,12 @@
                 "method": "GET",
                 "url": "/invites/{invite.code}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "invite",
+                        "type": "invite/invite"
+                    }
+                ],
                 "parameters": {
                     "invite.code": {
                         "type": "string",
@@ -2639,6 +2842,12 @@
                 "method": "DELETE",
                 "url": "/invites/{invite.code}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "invite",
+                        "type": "invite/invite"
+                    }
+                ],
                 "parameters": {
                     "invite.code": {
                         "type": "string",
@@ -2657,6 +2866,12 @@
                 "method": "GET",
                 "url": "/users/@me",
                 "description": "without",
+                "responseTypes": [
+                    {
+                        "name": "user",
+                        "type": "user/user"
+                    }
+                ],
                 "parameters": {},
                 "parametersArray": false
             },
@@ -2667,6 +2882,12 @@
                 "method": "GET",
                 "url": "/users/{user.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "user",
+                        "type": "user/user"
+                    }
+                ],
                 "parameters": {
                     "user.id": {
                         "type": "snowflake",
@@ -2683,6 +2904,12 @@
                 "method": "PATCH",
                 "url": "/users/@me",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "user",
+                        "type": "user/user"
+                    }
+                ],
                 "parameters": {
                     "username": {
                         "location": "json",
@@ -2705,6 +2932,12 @@
                 "method": "GET",
                 "url": "/users/@me/guilds",
                 "description": "\"id\"",
+                "responseTypes": [
+                    {
+                        "name": "guild",
+                        "type": "Array<guild/guild>"
+                    }
+                ],
                 "parameters": {
                     "before": {
                         "location": "query",
@@ -2741,6 +2974,12 @@
                 "method": "GET",
                 "url": "/users/@me/guilds/{guild.id}/member",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "guild member",
+                        "type": "guild/guild-member"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -2773,6 +3012,12 @@
                 "method": "POST",
                 "url": "/users/@me/channels",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "DM channel",
+                        "type": "channel/channel"
+                    }
+                ],
                 "parameters": {
                     "recipient_id": {
                         "location": "json",
@@ -2789,6 +3034,12 @@
                 "method": "POST",
                 "url": "/users/@me/channels",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "DM channel",
+                        "type": "channel/channel"
+                    }
+                ],
                 "parameters": {
                     "access_tokens": {
                         "location": "json",
@@ -2810,6 +3061,12 @@
                 "method": "GET",
                 "url": "/users/@me/connections",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "connection",
+                        "type": "Array<user/connection>"
+                    }
+                ],
                 "parameters": {},
                 "parametersArray": false
             },
@@ -2869,6 +3126,12 @@
                 "method": "GET",
                 "url": "/voice/regions",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "voice region",
+                        "type": "Array<voice/voice-region>"
+                    }
+                ],
                 "parameters": {},
                 "parametersArray": false
             }
@@ -2881,6 +3144,12 @@
                 "method": "POST",
                 "url": "/channels/{channel.id}/webhooks",
                 "description": "clyde",
+                "responseTypes": [
+                    {
+                        "name": "webhook",
+                        "type": "webhook/webhook"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -2908,6 +3177,12 @@
                 "method": "GET",
                 "url": "/channels/{channel.id}/webhooks",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "webhook",
+                        "type": "Array<webhook/webhook>"
+                    }
+                ],
                 "parameters": {
                     "channel.id": {
                         "type": "snowflake",
@@ -2924,6 +3199,12 @@
                 "method": "GET",
                 "url": "/guilds/{guild.id}/webhooks",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "webhook",
+                        "type": "Array<webhook/webhook>"
+                    }
+                ],
                 "parameters": {
                     "guild.id": {
                         "type": "snowflake",
@@ -2940,6 +3221,12 @@
                 "method": "GET",
                 "url": "/webhooks/{webhook.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "webhook",
+                        "type": "webhook/webhook"
+                    }
+                ],
                 "parameters": {
                     "webhook.id": {
                         "type": "snowflake",
@@ -2956,6 +3243,12 @@
                 "method": "GET",
                 "url": "/webhooks/{webhook.id}/{webhook.token}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "webhook",
+                        "type": "webhook/webhook"
+                    }
+                ],
                 "parameters": {
                     "webhook.id": {
                         "type": "snowflake",
@@ -2977,6 +3270,12 @@
                 "method": "PATCH",
                 "url": "/webhooks/{webhook.id}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "webhook",
+                        "type": "webhook/webhook"
+                    }
+                ],
                 "parameters": {
                     "webhook.id": {
                         "type": "snowflake",
@@ -3009,6 +3308,12 @@
                 "method": "PATCH",
                 "url": "/webhooks/{webhook.id}/{webhook.token}",
                 "description": "",
+                "responseTypes": [
+                    {
+                        "name": "webhook",
+                        "type": "webhook/webhook"
+                    }
+                ],
                 "parameters": {
                     "webhook.id": {
                         "type": "snowflake",

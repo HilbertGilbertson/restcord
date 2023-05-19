@@ -86,7 +86,7 @@ $user = $client->user->getUser(['user.id' => (int) $guild->owner_id]);
 Assertion::eq(0001, $user->discriminator);
 
 $output->text('-> Updating Member');
-$client->guild->updateNick(
+$client->guild->modifyCurrentMember(
     [
         'guild.id' => (int) $argv[2],
         'nick'     => 'Build at: '.time(),
