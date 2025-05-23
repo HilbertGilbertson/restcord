@@ -1634,25 +1634,32 @@
                         "location": "uri",
                         "required": true
                     },
-                    "around?": {
+                    "around": {
                         "location": "query",
                         "type": "snowflake",
-                        "description": "Get messages around this message ID"
+                        "description": "Get messages around this message ID",
+                        "required": false,
+                        "default": null
                     },
-                    "before?": {
+                    "before": {
                         "location": "query",
                         "type": "snowflake",
-                        "description": "Get messages before this message ID"
+                        "description": "Get messages before this message ID",
+                        "required": false,
+                        "default": null
                     },
-                    "after?": {
+                    "after": {
                         "location": "query",
                         "type": "snowflake",
-                        "description": "Get messages after this message ID"
+                        "description": "Get messages after this message ID",
+                        "required": false,
+                        "default": null
                     },
-                    "limit?": {
+                    "limit": {
                         "location": "query",
                         "type": "integer",
                         "description": "Max number of messages to return (1-100)",
+                        "required": false,
                         "default": 50
                     }
                 },
@@ -5051,6 +5058,129 @@
                         "location": "json",
                         "type": "string",
                         "description": "party_id from a Rich Presence event"
+                    },
+                    "id": {
+                        "location": "json",
+                        "type": "snowflake"
+                    },
+                    "channel_id": {
+                        "location": "json",
+                        "type": "snowflake"
+                    },
+                    "author": {
+                        "location": "json",
+                        "type": "channel/user"
+                    },
+                    "content": {
+                        "location": "json",
+                        "type": "string"
+                    },
+                    "timestamp": {
+                        "location": "json",
+                        "type": "string"
+                    },
+                    "edited_timestamp?": {
+                        "location": "json",
+                        "type": "string"
+                    },
+                    "tts": {
+                        "location": "json",
+                        "type": "boolean"
+                    },
+                    "mention_everyone": {
+                        "location": "json",
+                        "type": "boolean"
+                    },
+                    "mentions": {
+                        "location": "json",
+                        "type": "array"
+                    },
+                    "mention_roles": {
+                        "location": "json",
+                        "type": "array"
+                    },
+                    "mention_channels?": {
+                        "location": "json",
+                        "type": "array"
+                    },
+                    "attachments": {
+                        "location": "json",
+                        "type": "array"
+                    },
+                    "embeds": {
+                        "location": "json",
+                        "type": "array"
+                    },
+                    "reactions?": {
+                        "location": "json",
+                        "type": "array"
+                    },
+                    "nonce?": {
+                        "location": "json",
+                        "type": [
+                            "integer",
+                            "string"
+                        ]
+                    },
+                    "pinned": {
+                        "location": "json",
+                        "type": "boolean"
+                    },
+                    "webhook_id?": {
+                        "location": "json",
+                        "type": "snowflake"
+                    },
+                    "application_id?": {
+                        "location": "json",
+                        "type": "snowflake"
+                    },
+                    "flags?": {
+                        "location": "json",
+                        "type": "integer"
+                    },
+                    "message_reference?": {
+                        "location": "json",
+                        "type": "object"
+                    },
+                    "message_snapshots?": {
+                        "location": "json",
+                        "type": "array"
+                    },
+                    "referenced_message?": {
+                        "location": "json",
+                        "type": "object"
+                    },
+                    "interaction_metadata?": {
+                        "location": "json",
+                        "type": "object"
+                    },
+                    "thread?": {
+                        "location": "json",
+                        "type": "object"
+                    },
+                    "components?": {
+                        "location": "json",
+                        "type": "array"
+                    },
+                    "sticker_items?": {
+                        "location": "json",
+                        "type": "array"
+                    },
+                    "stickers?": {
+                        "location": "json",
+                        "type": "array"
+                    },
+                    "position?": {
+                        "location": "json",
+                        "type": "integer"
+                    },
+                    "poll?": {
+                        "location": "json",
+                        "type": "object"
+                    },
+                    "call?": {
+                        "location": "json",
+                        "type": "object"
                     }
                 }
             },
