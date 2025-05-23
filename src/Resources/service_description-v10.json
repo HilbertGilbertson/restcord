@@ -825,21 +825,28 @@
                         "location": "uri",
                         "required": true
                     },
-                    "limit?": {
+                    "limit": {
                         "location": "query",
                         "type": "number",
                         "description": "number of users to return (up to maximum 1000)",
-                        "default": "1000"
+                        "default": 1000,
+                        "required": false
                     },
-                    "before?": {
+                    "before": {
                         "location": "query",
                         "type": "snowflake",
-                        "description": "consider only users before given user id"
+                        "description": "consider only users before given user id",
+                        "required": false,
+                        "nullable": true,
+                        "default": null
                     },
-                    "after?": {
+                    "after": {
                         "location": "query",
                         "type": "snowflake",
-                        "description": "consider only users after given user id"
+                        "description": "consider only users after given user id",
+                        "required": false,
+                        "nullable": true,
+                        "default": null
                     }
                 },
                 "parametersArray": false
